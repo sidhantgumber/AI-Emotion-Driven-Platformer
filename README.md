@@ -1,6 +1,6 @@
 # AI Emotion-Based Platformer Game
 
-An innovative 2D platformer that uses artificial intelligence to analyze your real-life experiences and dynamically generate personalized game levels based on your emotional state. Experience your feelings through gameplay as a brave red fox navigating emotionally-tuned worlds.
+An innovative 2D platformer that uses artificial intelligence to analyze your real-life experiences and dynamically generate personalized game levels based on your emotional state. Experience your feelings through gameplay as a brave red fox navigating emotionally-tuned worlds. Every time you enter what you're feeling, the game procedurally generates a new level with a custom curated narrative audio. Collect coins and reach the end of the level! 
 
 
 
@@ -23,7 +23,7 @@ An innovative 2D platformer that uses artificial intelligence to analyze your re
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/sidhantgumber/AI-Emotion-Driven-Platformer.git
    cd FinalProject
    ```
 
@@ -40,7 +40,7 @@ An innovative 2D platformer that uses artificial intelligence to analyze your re
 
 4. **Set up OpenAI API key**
    - Get your API key from [OpenAI](https://platform.openai.com/api-keys)
-   - Add your key as an environment variable or in EmotionBrain() to be recognized by the script `scripts/ml_agents.py` (line 12)
+   - Add your key as an environment variable or in EmotionBrain() to be recognized by the script `scripts/ml_agents.py` (line 17)
 
 5. **Run the game**
    ```bash
@@ -51,7 +51,7 @@ An innovative 2D platformer that uses artificial intelligence to analyze your re
 ### Game Controls
 - **WASD/Arrow Keys**: Move and jump
 - **SPACE/W/UP**: Jump
-- **R**: New experience (restart or return to input)
+- **R**: New experience (restart when lost or return to input for a new experience when pressing mid game)
 - **S**: Skip/stop narration
 - **ESC**: Quit game
 
@@ -79,33 +79,6 @@ Your fox character's movement adapts to your emotion:
 - **Neutral**: Balanced (gravity: 0.9), moderate (speed: 5), standard jumps (-20), normal animations
 
 ## Architecture & Technical Details
-
-### Project Structure
-```
-FinalProject/
-├── scripts/                    # Core game code
-│   ├── game.py                # Main entry point
-│   ├── level_viewer.py        # Game state management & rendering
-│   ├── player.py              # Player physics & controls
-│   ├── level_generator.py     # Procedural level generation
-│   ├── ml_agents.py           # OpenAI integration
-│   ├── tts.py                 # Text-to-speech narration
-│   ├── audio_manager.py       # Sound effects & music
-│   ├── ui_components.py       # UI elements
-│   ├── prompts.py             # AI prompt templates
-│   ├── support.py             # Utility functions
-│   └── settings.py            # Game configuration
-├── graphics/                   # Game assets
-│   ├── character/             # Player sprites & animations
-│   ├── terrain/               # Platform & environment tiles
-│   ├── decoration/            # Background elements & skies
-│   └── ui/                    # Interface elements
-├── audio/                      # Sound assets
-│   ├── bgm/                   # Background music (emotion-specific)
-│   └── sfx/                   # Sound effects
-├── levels/                     # Pre-built level data
-└── generated_levels/           # AI-generated level data
-```
 
 ### Core Systems
 
@@ -203,11 +176,6 @@ Levels are stored as CSV files with separate layers:
 - `bg_palms.csv` - Background palm trees  
 - `player.csv` - Spawn point and goal location
 
-### Performance Optimizations
-- **Viewport Culling**: Only renders tiles visible on screen
-- **Asset Caching**: Graphics loaded once and reused
-- **Efficient Collision**: Tile-based collision detection
-- **Smooth Camera**: Interpolated camera movement prevents jarring jumps
 
 ## Audio Design
 
@@ -230,20 +198,6 @@ Each emotion has a dedicated background track:
 - **Background Generation**: Speech generated asynchronously
 - **Skip Controls**: Players can skip or stop narration
 
-## Research & Innovation
-
-### Novel Contributions
-1. **Emotional AI Integration**: First-of-its-kind system linking real emotions to game mechanics
-2. **Dynamic Narrative Generation**: AI creates personalized stories connecting user experiences to gameplay
-3. **Procedural Emotion Mapping**: Mathematical algorithms translate feelings into level geometry
-4. **Multimodal Experience**: Combines text analysis, visual generation, and audio narration
-5. **Real-time Adaptation**: Instant level generation based on user input
-
-### Academic Applications
-- **Affective Computing**: Demonstrates practical emotion recognition in interactive systems
-- **Procedural Content Generation**: Shows how AI can create meaningful, contextual game content
-- **Human-Computer Interaction**: Explores new forms of emotional expression through gameplay
-- **Game AI**: Advances in AI-driven personalization and adaptive difficulty
 
 ## Development & Customization
 
@@ -273,7 +227,7 @@ Modify prompts in `prompts.py` to change AI behavior:
 ### Common Issues
 
 **Game won't start**
-- Ensure Python 3.10+ is installed
+- Ensure Python 3.10 is installed
 - Check all dependencies are installed: `pip install -r requirements.txt`
 - Verify graphics files exist in `graphics/` directory
 
@@ -287,42 +241,7 @@ Modify prompts in `prompts.py` to change AI behavior:
 - Check system audio settings
 - Verify pygame audio initialization
 
-**Performance issues**
-- Close other applications to free memory
-- Reduce screen resolution if needed
-- Check for graphics driver updates
 
-### Debug Mode
-Enable debug output by running:
-```bash
-python game.py --debug
-```
-
-## System Requirements
-
-### Minimum Requirements
-- **OS**: Windows 10, macOS 10.14, or Linux
-- **Python**: 3.10 or higher
-- **RAM**: 4GB
-- **Storage**: 500MB free space
-- **Internet**: Required for AI features
-
-### Recommended Requirements
-- **OS**: Windows 11, macOS 12+, or Ubuntu 20.04+
-- **Python**: 3.11
-- **RAM**: 8GB
-- **Storage**: 1GB free space
-- **Internet**: Stable broadband connection
-
-## Contributing
-
-We welcome contributions! Please see our contributing guidelines:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ### Development Setup
 ```bash
@@ -339,11 +258,6 @@ pip install -r requirements.txt
 ```
 
 
-## Acknowledgments
 
-- **OpenAI** for GPT-3.5 API enabling emotion detection and narrative generation
-- **Microsoft** for Edge-TTS providing high-quality text-to-speech
-- **Pygame Community** for the excellent game development framework
-- **Drexel University** for supporting this research project
 
 
