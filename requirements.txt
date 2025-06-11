@@ -1,0 +1,24 @@
+# AI Emotion-Based Platformer Game Requirements
+# Python 3.10+ compatible versions
+
+# Core Game Engine
+pygame==2.5.2
+
+# AI & Machine Learning
+openai==1.3.0                 # OpenAI GPT API for emotion detection and narrative generation
+
+# Text-to-Speech
+edge-tts==6.1.7               # Microsoft Edge TTS for high-quality narration
+
+# Environment Variables (optional but recommended)
+python-dotenv==1.0.0          # Load environment variables from .env file
+
+# Core Python Libraries
+numpy==1.24.3                 # Numerical computing (used by various dependencies)
+requests==2.31.0              # HTTP requests (used by OpenAI client)
+
+# Audio Processing (for pygame audio support)
+# These may be required depending on your system
+# Uncomment if you encounter audio issues:
+# soundfile==0.12.1
+# librosa==0.10.1
