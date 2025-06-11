@@ -1,5 +1,5 @@
 # AI Emotion-Based Platformer Game Requirements
-# Python 3.10+ compatible versions
+# Python 3.10 ONLY compatible versions, 
 
 # Core Game Engine
 pygame==2.5.2
@@ -16,6 +16,7 @@ python-dotenv==1.0.0          # Load environment variables from .env file
 # Core Python Libraries
 numpy==1.24.3                 # Numerical computing (used by various dependencies)
 requests==2.31.0              # HTTP requests (used by OpenAI client)
+httpx==0.24.1
 
 # Audio Processing (for pygame audio support)
 # These may be required depending on your system

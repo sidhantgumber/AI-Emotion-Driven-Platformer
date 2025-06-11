@@ -1,10 +1,10 @@
-# 🦊 AI Emotion-Based Platformer Game
+# AI Emotion-Based Platformer Game
 
 An innovative 2D platformer that uses artificial intelligence to analyze your real-life experiences and dynamically generate personalized game levels based on your emotional state. Experience your feelings through gameplay as a brave red fox navigating emotionally-tuned worlds.
 
 
 
-## 🎮 Core Concept
+## Core Concept
 
 1. **Share Your Experience**: Describe what happened in your day (e.g., "I got promoted!" or "Traffic was terrible")
 2. **AI Emotion Analysis**: OpenAI GPT analyzes your text to detect emotion (joy, fear, anger, neutral)
@@ -13,7 +13,7 @@ An innovative 2D platformer that uses artificial intelligence to analyze your re
 5. **Audio Narration**: High-quality text-to-speech brings your story to life
 6. **Emotional Gameplay**: Navigate through levels that physically manifest your feelings
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Python 3.10 (Reccomended)
@@ -29,14 +29,20 @@ An innovative 2D platformer that uses artificial intelligence to analyze your re
 
 2. **Install dependencies**
    ```bash
+   conda create --name myenv python=3.10 
+   conda activate myenv  
+   ```   
+
+3. **Install dependencies**
+   ```bash
    pip install -r requirements.txt
    ```
 
-3. **Set up OpenAI API key**
+4. **Set up OpenAI API key**
    - Get your API key from [OpenAI](https://platform.openai.com/api-keys)
    - Add your key as an environment variable or in EmotionBrain() to be recognized by the script `scripts/ml_agents.py` (line 12)
 
-4. **Run the game**
+5. **Run the game**
    ```bash
    cd scripts
    python game.py
@@ -52,17 +58,17 @@ An innovative 2D platformer that uses artificial intelligence to analyze your re
 ### Objective
 Collect **5 coins** and reach the **pirate hat** to win! Your movement physics change based on your detected emotion.
 
-## 🧠 AI-Powered Emotion System
+## AI-Powered Emotion System
 
 ### Emotion Detection
 The AI analyzes your input and classifies it into four core emotions:
 
 | Emotion | Examples | Level Characteristics |
 |---------|----------|----------------------|
-| **😊 Joy** | "Got promoted!", "Beautiful sunset", "Had a great date" | Bouncy physics, long platforms, abundant collectibles |
-| **😰 Fear** | "Job interview tomorrow", "Heard strange noises", "Feeling anxious" | Heavy physics, short platforms, sparse rewards |
-| **😡 Anger** | "Traffic jam!", "Unfair treatment", "Broken promises" | Aggressive physics, chaotic layout, challenging jumps |
-| **😐 Neutral** | "Normal day", "Drank water", "Watched TV" | Balanced physics, standard platforming |
+| **Joy** | "Got promoted!", "Beautiful sunset", "Had a great date" | Bouncy physics, long platforms, abundant collectibles |
+| **Fear** | "Job interview tomorrow", "Heard strange noises", "Feeling anxious" | Heavy physics, short platforms, sparse rewards |
+| **Anger** | "Traffic jam!", "Unfair treatment", "Broken promises" | Aggressive physics, chaotic layout, challenging jumps |
+| **Neutral** | "Normal day", "Drank water", "Watched TV" | Balanced physics, standard platforming |
 
 ### Dynamic Physics System
 Your fox character's movement adapts to your emotion:
@@ -72,7 +78,7 @@ Your fox character's movement adapts to your emotion:
 - **Anger**: Intense (gravity: 1.3), very fast (speed: 9), explosive jumps (-28), rapid animations
 - **Neutral**: Balanced (gravity: 0.9), moderate (speed: 5), standard jumps (-20), normal animations
 
-## 🏗️ Architecture & Technical Details
+## Architecture & Technical Details
 
 ### Project Structure
 ```
@@ -103,39 +109,39 @@ FinalProject/
 
 ### Core Systems
 
-#### 🎨 Procedural Level Generation (`level_generator.py`)
+#### Procedural Level Generation (`level_generator.py`)
 - **Emotion-Based Parameters**: Each emotion has unique platform lengths, gap sizes, and decoration density
 - **Intelligent Platform Placement**: Ensures playable paths while maintaining emotional character
 - **Multi-Layer Generation**: Terrain, decorations, collectibles, and spawn points generated separately
 - **CSV Export System**: Levels saved in modular format for easy loading and modification
 
-#### 🤖 AI Integration (`ml_agents.py`)
+#### AI Integration (`ml_agents.py`)
 - **OpenAI GPT-3.5 Integration**: Robust emotion classification and narrative generation
 - **Structured Prompts**: Carefully crafted prompts ensure consistent, high-quality outputs
 - **Fallback Systems**: Local narratives when API is unavailable
 - **Error Handling**: Graceful degradation with meaningful error messages
 
-#### 🔊 Audio System (`audio_manager.py`, `tts.py`)
+#### Audio System (`audio_manager.py`, `tts.py`)
 - **Emotion-Specific Music**: Background tracks that match detected emotions
 - **Edge-TTS Integration**: High-quality Microsoft voices for narrative narration
 - **Dynamic Sound Effects**: Jump, coin collection, death, and victory sounds
 - **Volume Management**: Separate controls for music and sound effects
 
-#### 🎮 Player System (`player.py`)
+#### Player System (`player.py`)
 - **Emotion-Adaptive Physics**: Movement parameters change based on detected emotion
 - **State Management**: Handles death, respawn, win conditions, and score tracking
 - **Collision Detection**: Precise tile-based collision with terrain
 - **Animation System**: Smooth sprite animations for idle, run, jump, and fall states
 
-#### 🖼️ Rendering System (`level_viewer.py`)
+#### Rendering System (`level_viewer.py`)
 - **Layered Rendering**: Background → terrain → decorations → player → UI
 - **Viewport Culling**: Only renders visible tiles for optimal performance
 - **Camera System**: Smooth interpolation following player movement
 - **Emotion-Specific Backgrounds**: Dynamic sky colors and textures
 
-## 🎨 Emotion-Based Level Design
+## Emotion-Based Level Design
 
-### Joy Levels 😊
+### Joy Levels 
 - **Atmosphere**: Vibrant emerald forest with golden sunbeams
 - **Platforms**: Long (6-12 tiles), encouraging exploration
 - **Gaps**: Small (3-5 tiles), easily jumpable
@@ -145,7 +151,7 @@ FinalProject/
 - **Sky**: Bright yellow-to-blue gradient
 - **Music**: Upbeat, energetic background track
 
-### Fear Levels 😰
+### Fear Levels 
 - **Atmosphere**: Dark, mist-shrouded woodland with eerie shadows
 - **Platforms**: Very short (2-3 tiles), creating uncertainty
 - **Gaps**: Minimal (1-2 tiles), focusing on ground-level navigation
@@ -155,7 +161,7 @@ FinalProject/
 - **Sky**: Dark blue-to-black gradient
 - **Music**: Tense, atmospheric background track
 
-### Anger Levels 😡
+### Anger Levels 
 - **Atmosphere**: Blazing crimson realm with jagged rocks
 - **Platforms**: Variable (1-8 tiles), creating chaotic layout
 - **Gaps**: Large (3-7 tiles), demanding precise jumps
@@ -165,7 +171,7 @@ FinalProject/
 - **Sky**: Red-to-dark-red gradient
 - **Music**: Intense, driving background track
 
-### Neutral Levels 😐
+### Neutral Levels 
 - **Atmosphere**: Peaceful clearing under calm azure sky
 - **Platforms**: Balanced (4-10 tiles), standard platforming
 - **Gaps**: Moderate (2-4 tiles), fair challenges
@@ -203,7 +209,7 @@ Levels are stored as CSV files with separate layers:
 - **Efficient Collision**: Tile-based collision detection
 - **Smooth Camera**: Interpolated camera movement prevents jarring jumps
 
-## 🎵 Audio Design
+## Audio Design
 
 ### Background Music System
 Each emotion has a dedicated background track:
@@ -224,7 +230,7 @@ Each emotion has a dedicated background track:
 - **Background Generation**: Speech generated asynchronously
 - **Skip Controls**: Players can skip or stop narration
 
-## 🔬 Research & Innovation
+## Research & Innovation
 
 ### Novel Contributions
 1. **Emotional AI Integration**: First-of-its-kind system linking real emotions to game mechanics
@@ -239,7 +245,7 @@ Each emotion has a dedicated background track:
 - **Human-Computer Interaction**: Explores new forms of emotional expression through gameplay
 - **Game AI**: Advances in AI-driven personalization and adaptive difficulty
 
-## 🛠️ Development & Customization
+## Development & Customization
 
 ### Adding New Emotions
 1. Update `MOOD_ATMOSPHERES` in `prompts.py`
@@ -262,7 +268,7 @@ Modify prompts in `prompts.py` to change AI behavior:
 - Adjust `EMOTION_EXTRACTION_PROMPT` for different emotion classification
 - Modify `NARRATIVE_GENERATION_PROMPT` for different story styles
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -292,7 +298,7 @@ Enable debug output by running:
 python game.py --debug
 ```
 
-## 📊 System Requirements
+## System Requirements
 
 ### Minimum Requirements
 - **OS**: Windows 10, macOS 10.14, or Linux
@@ -308,7 +314,7 @@ python game.py --debug
 - **Storage**: 1GB free space
 - **Internet**: Stable broadband connection
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please see our contributing guidelines:
 
@@ -320,40 +326,24 @@ We welcome contributions! Please see our contributing guidelines:
 
 ### Development Setup
 ```bash
-# Clone repository
-git clone <repository-url>
-cd FinalProject
+
 
 # Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+conda create --name myenv python=3.10 
+conda activate myenv  
 
 # Install development dependencies
 pip install -r requirements.txt
-pip install -r requirements-dev.txt  # If available
 
-# Run tests
-python -m pytest tests/  # If tests exist
+
 ```
 
-## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **OpenAI** for GPT-3.5 API enabling emotion detection and narrative generation
 - **Microsoft** for Edge-TTS providing high-quality text-to-speech
 - **Pygame Community** for the excellent game development framework
 - **Drexel University** for supporting this research project
 
-## 📞 Support
 
-For questions, issues, or suggestions:
-- Open an issue on GitHub
-- Contact the development team
-- Check the troubleshooting section above
-
----
-
-*Transform your emotions into adventures. Every feeling becomes a world to explore.* 🦊✨
