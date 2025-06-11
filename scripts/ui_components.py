@@ -17,9 +17,9 @@ class TextInputBox:
         self.color = self.color_inactive
         self.active = False
         self.text = ''
-        self.font = pygame.font.Font(None, 32)
+        self.font = pygame.font.Font("../graphics/ui/ARCADEPI.TTF", 32)
         self.prompt_text = prompt_text
-        self.prompt_font = pygame.font.Font(None, 24)
+        self.prompt_font = pygame.font.Font("../graphics/ui/ARCADEPI.TTF", 20)
         
         # Cursor
         self.cursor_visible = True

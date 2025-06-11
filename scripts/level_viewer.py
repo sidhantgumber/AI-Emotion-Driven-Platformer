@@ -342,13 +342,13 @@ class EmotionLevelViewer:
         surface.blit(overlay, (0, 0))
         
         # Title
-        title_font = pygame.font.Font(None, 72)
+        title_font = pygame.font.Font("../graphics/ui/ARCADEPI.TTF", 72)
         title_text = title_font.render("Emotion Based Platformer", True, (255, 255, 255))
         title_rect = title_text.get_rect(center=(screen_width//2, screen_height//2 - 150))
         surface.blit(title_text, title_rect)
         
         # Subtitle
-        subtitle_font = pygame.font.Font(None, 36)
+        subtitle_font = pygame.font.Font("../graphics/ui/ARCADEPI.TTF", 30)
         subtitle_text = subtitle_font.render("How are you feeling today?", True, (200, 200, 200))
         subtitle_rect = subtitle_text.get_rect(center=(screen_width//2, screen_height//2 - 100))
         surface.blit(subtitle_text, subtitle_rect)
@@ -357,7 +357,7 @@ class EmotionLevelViewer:
         self.input_box.draw(surface)
         
         # Instructions
-        instruction_font = pygame.font.Font(None, 24)
+        instruction_font = pygame.font.Font("../graphics/ui/ARCADEPI.TTF", 20)
         instructions = [
             "Objective: Collect 5 coins and reach the pirate hat to win!",
             "Press ENTER to generate your emotional journey",
@@ -371,18 +371,18 @@ class EmotionLevelViewer:
     
     def draw_playing_ui(self, surface):
         """Draw UI elements during gameplay."""
-        font = pygame.font.Font(None, 36)
+        font = pygame.font.Font("../graphics/ui/ARCADEPI.TTF", 36)
         title_text = font.render(f"EMOTION LEVEL - {self.emotion.upper()}", True, (255, 255, 255))
         surface.blit(title_text, (10, 10))
         
         # Score display
-        score_font = pygame.font.Font(None, 48)
+        score_font = pygame.font.Font("../graphics/ui/ARCADEPI.TTF", 48)
         if hasattr(self, 'player'):
             score_text = score_font.render(f"COINS: {self.player.score}/{self.player.coins_needed}", True, (255, 215, 0))
             surface.blit(score_text, (10, 50))
             
             # Goal status
-            goal_font = pygame.font.Font(None, 32)
+            goal_font = pygame.font.Font("../graphics/ui/ARCADEPI.TTF", 32)
             if self.player.reached_goal:
                 goal_text = goal_font.render("GOAL REACHED!", True, (0, 255, 0))
                 surface.blit(goal_text, (10, 100))
@@ -392,7 +392,7 @@ class EmotionLevelViewer:
                 win_text = goal_font.render("Find the pirate hat to win!", True, (255, 255, 0))
                 surface.blit(win_text, (10, 130))
         
-        font_small = pygame.font.Font(None, 24)
+        font_small = pygame.font.Font("../graphics/ui/ARCADEPI.TTF", 24)
         controls = [
             "WASD/Arrow Keys: Move Player",
             "SPACE/W/UP: Jump",
